@@ -16,7 +16,6 @@ from unittest import mock
 from unittest.mock import MagicMock
 
 import pytest
-
 from src.taipy.core import JobId, Sequence, SequenceId, TaskId
 from src.taipy.core._orchestrator._dispatcher._development_job_dispatcher import _DevelopmentJobDispatcher
 from src.taipy.core._orchestrator._dispatcher._standalone_job_dispatcher import _StandaloneJobDispatcher
@@ -28,9 +27,9 @@ from src.taipy.core.job.job import Job
 from src.taipy.core.job.status import Status
 from src.taipy.core.scenario.scenario import Scenario
 from src.taipy.core.submission._submission_manager_factory import _SubmissionManagerFactory
-from src.taipy.core.submission.submission import Submission
 from src.taipy.core.task._task_manager import _TaskManager
 from src.taipy.core.task.task import Task
+
 from taipy.config.common.scope import Scope
 from taipy.config.config import Config
 
