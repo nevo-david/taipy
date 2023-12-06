@@ -17,7 +17,6 @@ from time import sleep
 from unittest import mock
 
 import pytest
-
 from src.taipy.core._orchestrator._dispatcher._job_dispatcher import _JobDispatcher
 from src.taipy.core._orchestrator._orchestrator_factory import _OrchestratorFactory
 from src.taipy.core.config.job_config import JobConfig
@@ -32,9 +31,10 @@ from src.taipy.core.scenario.scenario import Scenario
 from src.taipy.core.submission._submission_manager_factory import _SubmissionManagerFactory
 from src.taipy.core.task._task_manager import _TaskManager
 from src.taipy.core.task.task import Task
+from tests.core.utils import assert_true_after_time
+
 from taipy.config.common.scope import Scope
 from taipy.config.config import Config
-from tests.core.utils import assert_true_after_time
 
 
 def multiply(nb1: float, nb2: float):
@@ -350,8 +350,8 @@ def test_cancel_subsequent_jobs():
     task_3 = Task("task_config_3", {}, print, [dn_4], id="task_3")
 
     # Can't get tasks under 1 scenario due to partial not serializable
-    submission_1 = submission_manager._create("scenario_id", Scenario._ID_PREFIX)
-    submission_2 = submission_manager._create("scenario_id", Scenario._ID_PREFIX)
+    submission_1 = submission_manager._create("scenario_id", Scenario._ID_PREFIX, "scenario_config_id")
+    submission_2 = submission_manager._create("scenario_id", Scenario._ID_PREFIX, "scenario_config_id")
 
     _DataManager._set(dn_1)
     _DataManager._set(dn_2)
